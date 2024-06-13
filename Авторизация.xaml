@@ -1,0 +1,33 @@
+﻿<Window x:Class="Демоэкзамен.Авторизация"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Демоэкзамен"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:КЭ_ПоповаДDataSet x:Key="кЭ_ПоповаДDataSet"/>
+        <CollectionViewSource x:Key="usersViewSource" Source="{Binding Users, Source={StaticResource кЭ_ПоповаДDataSet}}"/>
+    </Window.Resources>
+    <Grid>
+        <Grid x:Name="grid1" DataContext="{StaticResource usersViewSource}" HorizontalAlignment="Left" Margin="151,112,0,0" VerticalAlignment="Top" Height="180" Width="478">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Login:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="loginTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="3,6,-266,6" Grid.Row="0" VerticalAlignment="Center" Width="393"/>
+            <Label Content="Password:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBox x:Name="passwordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="3,7,-265,8" Grid.Row="1" VerticalAlignment="Center" Width="395"/>
+            <Button Grid.Row="2" Width="50" HorizontalAlignment="Left"  Grid.Column="1" Margin="150,1,0,0" Height="21" VerticalAlignment="Top" Click="Button_Click">Вход</Button>
+        </Grid>
+
+    </Grid>
+</Window>
